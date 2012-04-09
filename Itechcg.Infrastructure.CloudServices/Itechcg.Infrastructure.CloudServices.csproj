@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6652607E-972A-4ADF-B6A9-252C7E0233FE}</ProjectGuid>
+    <ProjectGuid>{9E5F1A07-F5E4-45C3-AB5E-F3FA1FACA950}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ITechcg.Infrastructure</RootNamespace>
-    <AssemblyName>ITechcg.Infrastructure</AssemblyName>
+    <RootNamespace>Itechcg.Infrastructure.CloudServices</RootNamespace>
+    <AssemblyName>Itechcg.Infrastructure.CloudServices</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,8 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AWSSDK, Version=1.3.13.1, Culture=neutral, PublicKeyToken=cd2d24cd2bace800, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\AWS SDK for .NET\bin\AWSSDK.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,11 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\ITechcgException.cs" />
+    <Compile Include="CloudServiceClient.cs" />
+    <Compile Include="CloudServiceConfigProviderBase.cs" />
+    <Compile Include="Exceptions\CloudServiceConfigException.cs" />
+    <Compile Include="Exceptions\CloudServiceException.cs" />
+    <Compile Include="ICloudServiceConfigProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="3rdParty\AWSToolsAndSDKForNet.msi" />
+    <ProjectReference Include="..\ITechcg.Infrastructure\ITechcg.Infrastructure.csproj">
+      <Project>{6652607E-972A-4ADF-B6A9-252C7E0233FE}</Project>
+      <Name>ITechcg.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
