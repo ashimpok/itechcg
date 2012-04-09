@@ -1,0 +1,26 @@
+#output folders
+[Oo]bj/
+[Bb]in/
+
+#visual studio specific
+*.suo
+*.user
+*.cache
+*~
+*.swp
+
+#test
+/TestResults
+
+#vss/team foundation
+*.vspscc
+*.vssscc
+
+#silverlight
+*.xap
+ClientBin/
+
+#tools
+_ReSharper.*
+*.resharper
+*.db
