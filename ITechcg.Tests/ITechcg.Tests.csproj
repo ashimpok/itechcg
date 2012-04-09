@@ -52,6 +52,10 @@
     <Folder Include="ITechcg.DAL\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ITechcg.Dal\ITechcg.Dal.csproj">
+      <Project>{0FCF927C-F660-4973-AA36-DC30029B3C69}</Project>
+      <Name>ITechcg.Dal</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ITechcg.Infrastructure\ITechcg.Infrastructure.csproj">
       <Project>{6652607E-972A-4ADF-B6A9-252C7E0233FE}</Project>
       <Name>ITechcg.Infrastructure</Name>
