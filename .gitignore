@@ -12,7 +12,6 @@
 #test
 /TestResults
 *.testsettings
-*.vsmdi
 
 #vss/team foundation
 *.vspscc

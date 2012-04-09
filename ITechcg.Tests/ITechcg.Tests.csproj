@@ -45,10 +45,17 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Itechcg.Infrastructure\ITechcgExceptionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ITechcg.DAL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ITechcg.Infrastructure\ITechcg.Infrastructure.csproj">
+      <Project>{6652607E-972A-4ADF-B6A9-252C7E0233FE}</Project>
+      <Name>ITechcg.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
