@@ -318,7 +318,7 @@ namespace ITechcg.Infrastructure.CloudServices
         /// requires content disposition for linked resources, which .Net does not support.
         /// </summary>
         /// <param name="mailMessage">.Net MailMessage</param>        
-        public bool SendBulkEmail(MailMessage mailMessage)
+        public void SendBulkEmail(MailMessage mailMessage)
         {
             //Create a temp unique folder under WorkingTempFolder
             string currentWorkingFolder = Path.Combine(this.cloudServiceConfigProvider.WorkingTempFolder, System.Guid.NewGuid().ToString("N"));
@@ -380,8 +380,6 @@ namespace ITechcg.Infrastructure.CloudServices
                         SendRawEmailResponse sendRawEmailRes = amazonSes.SendRawEmail(sendRawEmailRequest);
                     }
                 }
-
-                return true;
             }
             catch (CloudServiceException aex)
             {
