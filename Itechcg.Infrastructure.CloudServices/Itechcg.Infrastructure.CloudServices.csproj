@@ -8,8 +8,8 @@
     <ProjectGuid>{9E5F1A07-F5E4-45C3-AB5E-F3FA1FACA950}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Itechcg.Infrastructure.CloudServices</RootNamespace>
-    <AssemblyName>Itechcg.Infrastructure.CloudServices</AssemblyName>
+    <RootNamespace>ITechcg.Infrastructure.CloudServices</RootNamespace>
+    <AssemblyName>ITechcg.Infrastructure.CloudServices</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="CloudServiceClient.cs" />
     <Compile Include="CloudServiceConfigProviderBase.cs" />
-    <Compile Include="CloudServicesFactory.cs" />
+    <Compile Include="CloudServiceFactory.cs" />
     <Compile Include="Exceptions\CloudServiceConfigException.cs" />
     <Compile Include="Exceptions\CloudServiceException.cs" />
     <Compile Include="ICloudServiceConfigProvider.cs" />
