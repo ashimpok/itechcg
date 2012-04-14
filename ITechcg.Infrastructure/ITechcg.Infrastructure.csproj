@@ -31,7 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AWSSDK, Version=1.3.13.1, Culture=neutral, PublicKeyToken=cd2d24cd2bace800, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\AWS SDK for .NET\bin\AWSSDK.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CloudServices\CloudServiceClient.cs" />
+    <Compile Include="CloudServices\CloudServiceConfigProviderBase.cs" />
+    <Compile Include="CloudServices\CloudServiceFactory.cs" />
+    <Compile Include="CloudServices\Exceptions\CloudServiceConfigException.cs" />
+    <Compile Include="CloudServices\Exceptions\CloudServiceException.cs" />
+    <Compile Include="CloudServices\ICloudServiceConfigProvider.cs" />
     <Compile Include="Exceptions\ITechcgException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
