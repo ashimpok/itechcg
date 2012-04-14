@@ -37,7 +37,7 @@ namespace ITechcg.Infrastructure.EmailServices.ContentProviders
         /// List of all linked resources that will be attached to the html view.
         /// </summary>
         /// <remarks>Never return a null. At least return an empty list.</remarks>
-        List<LinkedResource> LinkedResourceList { get;}
+        List<LinkedResource> LinkedResources { get;}
 
         /// <summary>
         /// Implement this method to accept data as string and initialize the email info provider. For example for XMLEmailInfoProvider this is an xml  file name.

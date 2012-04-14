@@ -43,7 +43,7 @@ namespace ITechcg.Infrastructure.EmailServices.ContentProviders
         string htmlBody;
         string senderEmail;
 
-        List<LinkedResource> linkedResourceList;
+        List<LinkedResource> linkedResources;
         string templateFolder;
 
         /// <summary>
@@ -94,14 +94,14 @@ namespace ITechcg.Infrastructure.EmailServices.ContentProviders
         /// Gets all the linked resources to be embedded in the HTML email.
         /// </summary>
         /// <remarks>Never returns a null. It's at least an empty list.</remarks>
-        public List<LinkedResource> LinkedResourceList
+        public List<LinkedResource> LinkedResources
         {
             get
             {
-                if (linkedResourceList == null)
-                    linkedResourceList = new List<LinkedResource>();
+                if (linkedResources == null)
+                    linkedResources = new List<LinkedResource>();
 
-                return linkedResourceList;
+                return linkedResources;
             }
         }
 
@@ -119,7 +119,7 @@ namespace ITechcg.Infrastructure.EmailServices.ContentProviders
         /// <param name="data">Xml file. If full path is not provided, file is expected in templateFolder.</param>
         public void Initialize(string data)
         {
-            linkedResourceList = new List<LinkedResource>();
+            linkedResources = new List<LinkedResource>();
             subject = string.Empty;
             plainTextBody = string.Empty;
             htmlBody = string.Empty;
@@ -184,7 +184,7 @@ namespace ITechcg.Infrastructure.EmailServices.ContentProviders
                                 LinkedResource lnkResource = new LinkedResource(cidPath, "image/*");
 
                                 lnkResource.ContentId = cid;
-                                linkedResourceList.Add(lnkResource);
+                                linkedResources.Add(lnkResource);
                             }
                         }
                     }
