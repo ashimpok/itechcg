@@ -51,6 +51,7 @@
     <Compile Include="CloudServices\Exceptions\CloudServiceConfigException.cs" />
     <Compile Include="CloudServices\Exceptions\CloudServiceException.cs" />
     <Compile Include="CloudServices\ICloudServiceConfigProvider.cs" />
+    <Compile Include="EmailServices\ContentProviders\IEmailContentProvider.cs" />
     <Compile Include="Exceptions\ITechcgException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
