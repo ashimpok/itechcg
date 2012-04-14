@@ -40,7 +40,7 @@ namespace ITechcg.Infrastructure.EmailServices.ContentProviders
         List<LinkedResource> LinkedResourceList { get;}
 
         /// <summary>
-        /// Override this method to accept data as string and initialize the email info provider. For example for XMLEmailInfoProvider this is an xml  file name.
+        /// Implement this method to accept data as string and initialize the email info provider. For example for XMLEmailInfoProvider this is an xml  file name.
         /// </summary>
         /// <param name="data"></param>
         void Initialize(string data);
