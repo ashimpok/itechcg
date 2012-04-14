@@ -54,6 +54,8 @@
     <Compile Include="EmailServices\ContentProviders\IEmailContentProvider.cs" />
     <Compile Include="EmailServices\ContentProviders\XmlEmailContentProvider.cs" />
     <Compile Include="EmailServices\Exceptions\EmailServiceException.cs" />
+    <Compile Include="EmailServices\IEmailServiceProvider.cs" />
+    <Compile Include="EmailServices\SmtpEmailServiceProvider.cs" />
     <Compile Include="Exceptions\ITechcgException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
