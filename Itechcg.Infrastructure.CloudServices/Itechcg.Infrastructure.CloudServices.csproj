@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="CloudServiceClient.cs" />
     <Compile Include="CloudServiceConfigProviderBase.cs" />
+    <Compile Include="CloudServicesFactory.cs" />
     <Compile Include="Exceptions\CloudServiceConfigException.cs" />
     <Compile Include="Exceptions\CloudServiceException.cs" />
     <Compile Include="ICloudServiceConfigProvider.cs" />

@@ -22,38 +22,15 @@ namespace ITechcg.Infrastructure.CloudServices
 
         private ICloudServiceConfigProvider CloudServiceConfigProvider
         {
-            set { cloudServiceConfigProvider = value; }
-        }
-
-        /// <summary>
-        /// Factory method to create Amazon Client
-        /// </summary>
-        /// <param name="cloudServiceConfigProvider">Cloud service configuration provider. Use the default Create method if you want to use web.config based provider and where all the keys specified in DefaultCloudServiceConfigProvider exactly matches the key name you have in the config file.</param>
-        public static CloudServiceClient CreateCloudServiceClient(ICloudServiceConfigProvider cloudServiceConfigProvider)
-        {
-            CloudServiceClient client = new CloudServiceClient();
-            client.CloudServiceConfigProvider = cloudServiceConfigProvider;
-
-            return client;
-        }
-
-        /// <summary>
-        /// Factory method to create Amazon Client with default configuration provider.
-        /// Use this if you want to use web.config based provider and where all the keys specified in DefaultCloudServiceConfigProvider exactly matches the key name you have in the config file.
-        /// </summary>        
-        public static CloudServiceClient CreateCloudServiceClient()
-        {
-            CloudServiceClient client = new CloudServiceClient();
-            client.CloudServiceConfigProvider = new CloudServiceConfigProviderBase();
-
-            return client;
+            get { return cloudServiceConfigProvider; }
         }
 
         /// <summary>
         /// Can not create this class without the factory methods.
         /// </summary>
-        private CloudServiceClient()
+        public CloudServiceClient(ICloudServiceConfigProvider CloudServiceConfigProvider)
         {
+            cloudServiceConfigProvider = CloudServiceConfigProvider;
         }
 
         #region Amazon S3 (Simple Storage Service) methods
