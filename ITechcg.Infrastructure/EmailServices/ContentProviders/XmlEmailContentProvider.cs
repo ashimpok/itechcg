@@ -6,6 +6,7 @@ using System.Net.Mail;
 using System.IO;
 using System.Xml.XPath;
 using ITechcg.Infrastructure.EmailServices.Exceptions;
+using ITechcg.Infrastructure.EmailServices.ServiceModel;
 
 namespace ITechcg.Infrastructure.EmailServices.ContentProviders
 {
@@ -38,12 +39,6 @@ namespace ITechcg.Infrastructure.EmailServices.ContentProviders
     /// </example>
     public sealed class XmlEmailContentProvider : IEmailContentProvider
     {
-        string subject;
-        string plainTextBody;
-        string htmlBody;
-        string senderEmail;
-
-        List<LinkedResource> linkedResources;
         string templateFolder;
 
         /// <summary>
@@ -64,53 +59,10 @@ namespace ITechcg.Infrastructure.EmailServices.ContentProviders
             templateFolder = TemplateFolder;
         }
 
-        #region IEmailInfoProvider Members
-        /// <summary>
-        /// Gets subject of the email
-        /// </summary>
-        public string Subject
+        EmailContent content;
+        public EmailContent Content
         {
-            get { return subject; }
-        }
-
-        /// <summary>
-        /// Gets Plain text template body
-        /// </summary>
-        public string PlainTextTemplateBody
-        {
-            get { return plainTextBody; }
-        }
-
-        /// <summary>
-        /// Gets the HTML template body.
-        /// </summary>
-        public string HTMLTemplateBody
-        {
-            get { return htmlBody; }
-        }
-
-
-        /// <summary>
-        /// Gets all the linked resources to be embedded in the HTML email.
-        /// </summary>
-        /// <remarks>Never returns a null. It's at least an empty list.</remarks>
-        public List<LinkedResource> LinkedResources
-        {
-            get
-            {
-                if (linkedResources == null)
-                    linkedResources = new List<LinkedResource>();
-
-                return linkedResources;
-            }
-        }
-
-        public string SenderEmail
-        {
-            get
-            {
-                return senderEmail;
-            }
+            get { throw new NotImplementedException(); }
         }
 
         /// <summary>
@@ -119,10 +71,7 @@ namespace ITechcg.Infrastructure.EmailServices.ContentProviders
         /// <param name="data">Xml file. If full path is not provided, file is expected in templateFolder.</param>
         public void Initialize(string data)
         {
-            linkedResources = new List<LinkedResource>();
-            subject = string.Empty;
-            plainTextBody = string.Empty;
-            htmlBody = string.Empty;
+            content = new EmailContent();
 
             string xmlFullPath = data;
 
@@ -143,16 +92,16 @@ namespace ITechcg.Infrastructure.EmailServices.ContentProviders
             XPathNavigator navigator = xpathDoc.CreateNavigator();
 
             XPathNavigator subjectNav = navigator.SelectSingleNode("/email/subject");
-            this.subject = subjectNav.InnerXml;
+            content.Subject = subjectNav.InnerXml;
 
             XPathNavigator senderNav = navigator.SelectSingleNode("/email/sender-email");
             if (senderNav != null)
-                this.senderEmail = senderNav.InnerXml;
+                content.SenderEmail = senderNav.InnerXml;
 
             XPathNavigator textViewNavigator = navigator.SelectSingleNode("/email/text-view");
             if (textViewNavigator != null)
             {
-                this.plainTextBody = textViewNavigator.InnerXml;
+                content.PlainTextTemplateBody = textViewNavigator.InnerXml;
             }
 
             //Read htmlView            
@@ -162,7 +111,7 @@ namespace ITechcg.Infrastructure.EmailServices.ContentProviders
                 XPathNavigator emailBodyNavigator = htmlViewNavigator.SelectSingleNode("email-body");
                 if (emailBodyNavigator != null)
                 {
-                    this.htmlBody = emailBodyNavigator.InnerXml;
+                    content.HTMLTemplateBody = emailBodyNavigator.InnerXml;
 
                     //get resources
                     XPathNodeIterator resourcesIterator = htmlViewNavigator.Select("linked-resources/resource");
@@ -184,13 +133,12 @@ namespace ITechcg.Infrastructure.EmailServices.ContentProviders
                                 LinkedResource lnkResource = new LinkedResource(cidPath, "image/*");
 
                                 lnkResource.ContentId = cid;
-                                linkedResources.Add(lnkResource);
+                                content.AddLinkedResource(lnkResource);
                             }
                         }
                     }
                 }
             }
         }
-        #endregion
     }
 }
