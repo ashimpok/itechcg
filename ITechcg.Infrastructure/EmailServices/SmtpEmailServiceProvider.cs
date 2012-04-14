@@ -11,15 +11,16 @@ namespace ITechcg.Infrastructure.EmailServices
     /// </summary>
     public class SmtpEmailServiceProvider : IEmailServiceProvider
     {
-        public SmtpEmailServiceProvider() { }
+        SmtpClient client;
+        public SmtpEmailServiceProvider(SmtpClient Client) 
+        {
+            client = Client;
+        }
 
         #region IEmailServiceProvider Members
 
         public void SendEmail(MailMessage Message)
-        {
-            ///TODO: Relies on Smtp Setting on the config file
-            ///Remove this dependency
-            SmtpClient client = new SmtpClient();
+        {            
             client.Send(Message);
         }
 
