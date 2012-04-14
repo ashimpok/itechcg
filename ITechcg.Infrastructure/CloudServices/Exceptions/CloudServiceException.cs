@@ -24,15 +24,15 @@ namespace ITechcg.Infrastructure.CloudServices.Exceptions
         /// string.Format. This is provided for ease of use.
         /// </summary>
         public CloudServiceException(string FormatString, params object[] Args)
-            : base(string.Format(FormatString, Args))
+            : base(FormatString, Args)
         {
         }
 
         /// <summary>
         /// Instantiates exception with innerException as inner exception with the provided message.
         /// </summary>
-        public CloudServiceException(Exception InnerException, string Message) 
-            : base(Message, InnerException)
+        public CloudServiceException(Exception InnerException, string Message)
+            : base(InnerException, Message)
         {
         }
 
@@ -41,7 +41,7 @@ namespace ITechcg.Infrastructure.CloudServices.Exceptions
         /// Internally uses string.Format to create the error message.
         /// </summary>
         public CloudServiceException(Exception InnerException, string FormatString, params object[] Args)
-            : base (string.Format(FormatString, Args), InnerException)
+            : base(InnerException, FormatString, Args)
         {
         }
     }

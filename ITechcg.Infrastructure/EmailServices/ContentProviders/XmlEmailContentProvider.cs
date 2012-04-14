@@ -50,10 +50,16 @@ namespace ITechcg.Infrastructure.EmailServices.ContentProviders
         /// Initializes XmlEmailContentProvider
         /// </summary>
         /// <param name="TemplateFolder">Full path to the Template Folder</param>
-        public XmlEmailContentProvider(string TemplateFolder) 
+        public XmlEmailContentProvider(string TemplateFolder)
         {
             if (!Path.IsPathRooted(TemplateFolder))
                 throw new EmailServiceException("Full path to the Template Folder must be provided.");
+
+            if (!File.Exists(TemplateFolder))
+            {
+                FileNotFoundException fnfe = new FileNotFoundException("Template folder not found", TemplateFolder);
+                throw new EmailServiceException(fnfe, "Template folder specified does not exist.");
+            }
 
             templateFolder = TemplateFolder;
         }
