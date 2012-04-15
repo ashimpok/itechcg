@@ -62,7 +62,7 @@ namespace ITechcg.Infrastructure.EmailServices.ContentProviders
         EmailContent content;
         public EmailContent Content
         {
-            get { throw new NotImplementedException(); }
+            get { return content; }
         }
 
         /// <summary>
