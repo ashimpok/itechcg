@@ -45,8 +45,8 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Itechcg.Infrastructure\EmailServicesTests\XmlEmailContentProviderTest.cs" />
-    <Compile Include="Itechcg.Infrastructure\ITechcgExceptionTest.cs" />
+    <Compile Include="ITechcg.Infrastructure\EmailServicesTests\XmlEmailContentProviderTest.cs" />
+    <Compile Include="ITechcg.Infrastructure\ITechcgExceptionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,7 +63,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Itechcg.Infrastructure\EmailServicesTests\TemplateXml\SampleEmailTemplate.xml" />
+    <Content Include="ITechcg.Infrastructure\EmailServicesTests\TemplateXml\SampleEmailTemplate.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
