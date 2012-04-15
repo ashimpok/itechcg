@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<email>
+	<subject>ITechcg Subscription</subject>
+	<html-view>
+		<linked-resources>
+			<resource cid="logo" path="LinkedResources/logo.bmp"/>
+			<resource cid="footer" path="LinkedResources/enroll_email_footer-tail.jpg"/>
+		</linked-resources>
+		<email-body>
+			<html>
+				<head>
+					<meta http-equiv="content-type" content="text/html; charset=WINDOWS-1250" />
+					<title>ITechcg Subscription</title>
+					<style type="text/css">
+						p{
+						color:#333333;
+						margin-bottom:15px;
+						}
+					</style>
+				</head>
+				<body>
+					<div style="margin-left:auto;margin-right:auto;width:550px;">
+						<table style="font-family: 'Lucida Grande',sans-serif;font-size: 12px;font-weight: normal;border-width:0px;border-spacing:0px;width:550px;">
+							<tr>
+								<td style="background-color:#F5F5F5;padding:15px 15px 10px 15px;border-width:0px;">
+									<img src="cid:logo" alt="Logo"/>
+									<p>
+										Dear __FIRST_NAME__  __LAST_NAME__,
+									</p>
+									<p>
+										Thank you for subscribing to our service. If you have a more immediate need, please contact
+										our support center __ITECHCG_SUPPORT_CENTER__.
+									</p>
+								</td>
+							</tr>
+							<tr>
+								<td style="border-width:0px;">
+									<img src="cid:footer" alt="Footer"/>
+								</td>
+							</tr>
+							<tr>
+								<td style="color:#151515;text-align:center;border-width:0px;">
+									ITechcg Virtual Presence Center
+								</td>
+							</tr>
+						</table>
+					</div>
+				</body>
+			</html>
+		</email-body>
+	</html-view>
+	<text-view>
+		Dear __FIRST_NAME__  __LAST_NAME__,
+
+		Thank you for subscribing to our service. If you have a more immediate need, please contact
+		our support center __ITECHCG_SUPPORT_CENTER__.
+	</text-view>
+</email>
+
