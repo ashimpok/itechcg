@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Net.Mail;
+using System.Collections.ObjectModel;
 
 namespace ITechcg.Infrastructure.EmailServices.ServiceModel
 {
@@ -39,15 +40,15 @@ namespace ITechcg.Infrastructure.EmailServices.ServiceModel
         IList<LinkedResource> linkedResources;
 
         /// <summary>
-        /// List of all linked resources that will be attached to the html view.
+        /// Readonly collection of LinkedResources
         /// </summary>
         /// <remarks>Never return a null. At least return an empty list.</remarks>
         public IList<LinkedResource> LinkedResources 
         {
             get
             {
-                ///TODO: Return readonly collection
-                return linkedResources;
+                ReadOnlyCollection<LinkedResource> readOnly = new ReadOnlyCollection<LinkedResource>(linkedResources);                
+                return readOnly;
             }
         }
 
